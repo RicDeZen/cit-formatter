@@ -1,2 +1,6 @@
-config.json
 dce/
+download/
+document/
+__pycache__/
+
+config.json
