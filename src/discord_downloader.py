@@ -33,7 +33,7 @@ class ChatDownloader():
             output_type : str (default = "plaintext")
                 Type of output file. See DCE for details.
         '''
-        if not output.exists() : raise ValueError("Path for output does not exist.")
+        if output.is_dir() and not output.exists() : raise ValueError("Path for output does not exist.")
         output = output.resolve()
         command = "{} export -o {} -t {} -c {} -f {}".format(self.dce, output, self.token, channel, output_type)
         subprocess.run(command)
