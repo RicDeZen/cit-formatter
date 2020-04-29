@@ -3,7 +3,7 @@ from pathlib import Path
 
 CONFIG_FILE = Path("config.json")
 
-class DiscordDownloader():
+class ChatDownloader():
     '''
     Class to download a Discord server channel's data, requires
     DiscordChatExporter to be installed.
