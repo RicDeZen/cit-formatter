@@ -13,6 +13,8 @@ CONFIG_FILE = Path("config.json")
 config = json.load(CONFIG_FILE.open("r"))
 
 dce_path = Path(config["dce_path"]).resolve()
+if not dce_path.exists():
+    raise ValueError("Can't find DCE")
 token = config["discord_token"]
 channel = config["discord_channel_id"]
 dwn_path = Path(config["download_path"])
@@ -20,6 +22,8 @@ dwn_path = Path(config["download_path"])
 if dwn_path.is_dir() and not dwn_path.exists():
     dwn_path.mkdir()
 dwn_path = dwn_path.resolve()
+if not Path("output/").exists():
+    Path("output/").mkdir()
 
 ChatDownloader(dce_path, token).download_channel(channel, dwn_path, "json")
 
