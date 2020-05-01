@@ -32,7 +32,7 @@ quotes = QuoteParser().parse(data, config["aliases"])
 
 grouped = group_msg_by_author(quotes)
 print(grouped)
-DocBuilder().makedoc(
+DocMaker().makedoc(
     grouped, "Le Cit-Cogne", "By Le Cicogne"
 ).generate_pdf("output/output", clean_tex=False)
 
